@@ -192,7 +192,7 @@ ZMK_BEHAVIOR(hmr_s, hold_tap,
               &kp DQT     &kp LBKT    &kp LBRC    &kp LPAR    &kp LT           &kp FSLH  &kp MINUS    &kp EQUAL   &kp COLON   &kp SEMI
         // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├───────────┼───────────┼───────────┼───────────┼───────────┤
         // │     '     │     ]     │     }     │     )     │     >     │   │     \     │     _     │     +     │     |     │     ?     │
-              &kp SQT     &kp RBKT    &kp RBRC    &kp RPAR    &kp GT         &kp BLSH     &kp UNDER   &kp PLUS     &kp PIPE   &kp QMARK
+              &kp SQT     &kp RBKT    &kp RBRC    &kp RPAR    &kp GT         &kp BSLH     &kp UNDER   &kp PLUS     &kp PIPE   &kp QMARK
         // ╰───────────┼───────────┼───────────┼───────────┼───────────╯   ╰───────────┼───────────┼───────────┼───────────┼───────────╯
                                         ___         _x_         _x_             _x_         _x_         _x_
         //                         │                                   │   │                                   │
