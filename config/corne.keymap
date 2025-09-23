@@ -7,6 +7,7 @@
 #include "zmk-helpers/helper.h"
 #include "keys/36.h"
 
+#include "keys/keys_ru.h"
 
 // global
 #define QUICK_TAP_MS 150
@@ -14,8 +15,8 @@
 #define PRIOR_IDLE_MS 150
 
 // home rows
-#define HRML(k1,k2,k3,k4) &hml LALT k1  &hml LMETA k2  &hml LSHIFT k3   &hml LCTRL k4
-#define HRMR(k1,k2,k3,k4) &hmr RCTRL k1    &hmr RSHIFT k2   &hmr RMETA k3  &hmr RALT k4
+#define HRML(k1,k2,k3,k4) &hml LALT k1   &hml LMETA k2   &hml LSHIFT k3  &hml LCTRL k4
+#define HRMR(k1,k2,k3,k4) &hmr RCTRL k1  &hmr RSHIFT k2  &hmr RMETA k3   &hmr RALT k4
 
 // layers
 #define BASE 0
@@ -140,6 +141,12 @@ ZMK_BEHAVIOR(hmr_s, hold_tap,
             bindings = <&kp BSPC>, <&kp DEL>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
     };
+    TEIO: S_BSPC_DEL {
+         compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp T>, <&kp RU_CYRILLIC_IO>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+    };
     oneshot_esc: oneshot {
           compatible = "zmk,behavior-oneshot";
           label = "OneShot ESC";
@@ -156,8 +163,8 @@ ZMK_BEHAVIOR(hmr_s, hold_tap,
 
       bindings = <
         // ╭───────────────────────────────────────────────────────────╮   ╭───────────────────────────────────────────────────────────╮
-        // │     Q     │     W     │     E     │    R      │     T     │   │     Y     │     U     │     I     │     O     │     P     │
-              &lt FN Q     &kp W       &kp E      &kp R        &kp T           &kp Y       &kp U       &kp I       &kp O       &kp P
+        // │     Q     │     W     │     E     │    R      │  T (Е/Ё)  │   │     Y     │     U     │     I     │     O     │     P     │
+              &lt FN Q     &kp W       &kp E      &kp R        &TEIO           &kp Y       &kp U       &kp I       &kp O       &kp P
         // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├───────────┼───────────┼───────────┼ ──────────┼───────────┤
         // │     A     │     S     │     D     │     F     │     G     │   │     H     │     J     │     K     │     L     │     '     │
             HRML(A,          S,          D,          F)      &lt NUM G         &kp H     HRMR(J,         K,          L,        SEMI)
@@ -193,7 +200,7 @@ ZMK_BEHAVIOR(hmr_s, hold_tap,
       bindings = <
         // ╭───────────────────────────────────────────────────────────╮   ╭───────────────────────────────────────────────────────────╮
         // │     !     │     @     │     #     │     $     │     %     │   │     ^     │     &     │     *     │     `     │     ~     │
-              &kp EXCL     &kp AT     &kp HASH    &kp DLLR   &kp PRCNT       &kp CARET    &kp AMPS    &kp STAR    &kp GRAVE  &kp TILDE
+              &kp EXCL     &kp AT &kp NON_US_HASH &kp DLLR   &kp PRCNT       &kp CARET    &kp AMPS    &kp STAR    &kp GRAVE  &kp TILDE
         // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├───────────┼───────────┼───────────┼───────────┼───────────┤
         // │     "     │     [     │     {     │     (     │     <     │   │     /     │     -     │     =     │     :     │     ;     │
               &kp DQT     &kp LBKT    &kp LBRC    &kp LPAR    &kp LT           &kp FSLH  &kp MINUS    &kp EQUAL   &kp COLON   &kp SEMI
@@ -246,14 +253,14 @@ ZMK_BEHAVIOR(hmr_s, hold_tap,
 
       bindings = <
         // ╭───────────────────────────────────────────────────────────╮   ╭───────────────────────────────────────────────────────────╮
-        // │     Q     │     W     │     E     │    R      │     T     │   │     Y     │     U     │     I     │     O     │     P     │
-               &kp Q       &kp W       &kp E      &kp R        &kp T           &kp Y       &kp U       &kp I       &kp O       &kp P
+        // │     1     │     Q     │     W     │     E     │    R      │   │     T     │     Y     │     U     │     I     │     O     │
+              &kp N1       &kp Q       &kp W       &kp E       &kp R           &kp T       &kp Y       &kp U       &kp I       &kp O
         // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├───────────┼───────────┼───────────┼ ──────────┼───────────┤
-        // │     A     │     S     │     D     │     F     │     G     │   │     H     │     J     │     K     │     L     │     '     │
-               &kp A       &kp S       &kp D       &kp F       &kp G           &kp H       &kp J       &kp K       &kp L      &kp SEMI
+        // │     2     │     A     │     S     │     D     │     F     │   │     G     │     H     │     J     │     K     │     L     │
+              &kp N2       &kp A       &kp S       &kp D       &kp F           &kp G       &kp H       &kp J       &kp K       &kp L
         // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├───────────┼───────────┼───────────┼───────────┼───────────┤
-        // │     Z     │     X     │     C     │     V     │     B     │   │     N     │     M     │    ,/;    │    ./:    │     /     │
-               &kp Z       &kp X       &kp C       &kp V       &kp B           &kp N       &kp M     &kp COMMA    &kp DOT     &kp FSLH
+        // │     3     │     Z     │     X     │     C     │     V     │   │     B     │     N     │     M     │    ,/;    │ minecraft │
+              &kp N3       &kp Z       &kp X       &kp C       &kp V           &kp B       &kp N       &kp M       &kp P      &kp F3
         // ╰───────────┼───────────┼───────────┼───────────┼───────────╯   ╰───────────┼───────────┼───────────┼───────────┼───────────╯
                                      &kp LSHIFT  &kp LCTRL   &kp SPACE       &kp RETURN   &kp ESC    &kp BSPC 
         //                         │                                   │   │                                   │
