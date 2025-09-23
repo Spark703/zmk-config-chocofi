@@ -141,7 +141,7 @@ ZMK_BEHAVIOR(hmr_s, hold_tap,
             bindings = <&kp BSPC>, <&kp DEL>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
     };
-    TEIO: S_BSPC_DEL {
+    TEIO: T_RUE_RUIO {
          compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp T>, <&kp RU_CYRILLIC_IO>;
