@@ -206,7 +206,7 @@ ZMK_BEHAVIOR(hmr_s, hold_tap,
       bindings = <
         // ╭───────────────────────────────────────────────────────────╮   ╭───────────────────────────────────────────────────────────╮
         // │     !     │     @     │     #     │     $     │     %     │   │     ^     │     &     │     *     │     `     │     ~     │
-              &kp EXCL     &kp AT &kp NON_US_HASH &kp DLLR   &kp PRCNT       &kp CARET    &kp AMPS    &kp STAR    &kp GRAVE  &kp TILDE
+              &kp EXCL    &kp AT     &kp HASH    &kp DLLR   &kp PRCNT       &kp CARET    &kp AMPS    &kp STAR    &kp GRAVE  &kp TILDE
         // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├───────────┼───────────┼───────────┼───────────┼───────────┤
         // │     "     │     [     │     {     │     (     │     <     │   │     /     │     -     │     =     │     :     │     ;     │
               &kp DQT     &kp LBKT    &kp LBRC    &kp LPAR    &kp LT           &kp FSLH  &kp MINUS    &kp EQUAL   &kp COLON   &kp SEMI
@@ -268,7 +268,7 @@ ZMK_BEHAVIOR(hmr_s, hold_tap,
         // │   ctrl    │     Z     │     X     │     C     │     V     │   │     B     │     N     │     M     │    ,/;    │ minecraft │
              &kp LCTRL     &kp Z       &kp X       &kp C       &kp V           &kp B       &kp N       &kp M       &kp P      &kp F3
         // ╰───────────┼───────────┼───────────┼───────────┼───────────╯   ╰───────────┼───────────┼───────────┼───────────┼───────────╯
-                                     &kp   &kp LCTRL   &kp SPACE       &kp RETURN   &kp ESC    &kp BSPC 
+                                     &kp RETURN   &kp TAB    &kp SPACE       &kp RETURN   &kp ESC    &kp BSPC 
         //                         │                                   │   │                                   │
         //                         ╰───────────────────────────────────╯   ╰───────────────────────────────────╯
       >;
