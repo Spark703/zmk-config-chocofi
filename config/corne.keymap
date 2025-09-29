@@ -105,13 +105,13 @@ ZMK_BEHAVIOR(hmr_s, hold_tap,
       iu_backspace_combo {
         timeout-ms = <50>; // Adjust as needed
         bindings = <&caps_word>; // Action: Backspace
-        key-positions = <16 17>;
+        key-positions = <RM1 RM2>;
         layers = < BASE >;
       };
       jk_colon_combo {
         timeout-ms = <50>; // Adjust as needed
         bindings = <&smart_shift>; // Action: Backspace
-        key-positions = <12 13>;
+        key-positions = <LM1 LM2>;
         layers = < BASE >;
       };
       game_toggle_combo {
@@ -121,6 +121,12 @@ ZMK_BEHAVIOR(hmr_s, hold_tap,
         layers = < BASE GEM >;
       };
 
+      ru_io_combo {
+        timeout-ms = <50>;
+        bindings = <&tog GEM>;
+        key-positions = <LT3 LT4>;
+        layers = < BASE >;
+      };
   };
   behaviors {
     hm: homerow_mods {
@@ -163,13 +169,13 @@ ZMK_BEHAVIOR(hmr_s, hold_tap,
 
       bindings = <
         // ╭───────────────────────────────────────────────────────────╮   ╭───────────────────────────────────────────────────────────╮
-        // │     Q     │     W     │     E     │    R      │  T (Е/Ё)  │   │     Y     │     U     │     I     │     O     │     P     │
-              &lt FN Q     &kp W       &kp E      &kp R        &TEIO           &kp Y       &kp U       &kp I       &kp O       &kp P
+        // │    Q/Й    │    W/Ц    │    E/У    │    R/К   │Ё│   T/Е    │   │    Y/Н    │    U/Г    │    I/Ш    │    O/Щ    │    P/З    │
+              &lt FN Q     &kp W       &kp E       &kp R       &kp T          &kp Y       &kp U       &kp I       &kp O       &kp P
         // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├───────────┼───────────┼───────────┼ ──────────┼───────────┤
-        // │     A     │     S     │     D     │     F     │     G     │   │     H     │     J     │     K     │     L     │     '     │
+        // │    A/Ф    │    S/Ы    │    D/В    │    F/Д    │    G/А    │   │    H/Р    │    J/О    │    K/Л    │    L/Д     │    '/Ж    │
             HRML(A,          S,          D,          F)      &lt NUM G         &kp H     HRMR(J,         K,          L,        SEMI)
         // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├───────────┼───────────┼───────────┼───────────┼───────────┤
-        // │     Z     │     X     │     C     │     V     │     B     │   │     N     │     M     │    ,/;    │    ./:    │     /     │
+        // │    Z/Я    │    X/Ч    │    C/С    │    V/М    │    B/И    │   │    N/Т    │    M/Ь    │   ,/;/Б   │   ./:/Ю    │   //,     │
                &kp Z       &kp X       &kp C       &kp V       &kp B           &kp N       &kp M     &kp COMMA    &kp DOT     &kp FSLH
         // ╰───────────┼───────────┼───────────┼───────────┼───────────╯   ╰───────────┼───────────┼───────────┼───────────┼───────────╯
                                      &kp CAPS  &lt NAV TAB  &hml MEH SPACE  &kp RETURN  &lt SYM ESC    &SBD 
@@ -253,16 +259,16 @@ ZMK_BEHAVIOR(hmr_s, hold_tap,
 
       bindings = <
         // ╭───────────────────────────────────────────────────────────╮   ╭───────────────────────────────────────────────────────────╮
-        // │     1     │     Q     │     W     │     E     │    R      │   │     T     │     Y     │     U     │     I     │     O     │
-              &kp N1       &kp Q       &kp W       &kp E       &kp R           &kp T       &kp Y       &kp U       &kp I       &kp O
+        // │    esc    │     Q     │     W     │     E     │    R      │   │     T     │     Y     │     U     │     I     │     O     │
+              &kp ESC      &kp Q       &kp W       &kp E       &kp R           &kp T       &kp Y       &kp U       &kp I       &kp O
         // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├───────────┼───────────┼───────────┼ ──────────┼───────────┤
-        // │     2     │     A     │     S     │     D     │     F     │   │     G     │     H     │     J     │     K     │     L     │
-              &kp N2       &kp A       &kp S       &kp D       &kp F           &kp G       &kp H       &kp J       &kp K       &kp L
+        // │   shift   │     A     │     S     │     D     │     F     │   │     G     │     H     │     J     │     K     │     L     │
+             &kp LSHIFT    &kp A       &kp S       &kp D       &kp F           &kp G       &kp H       &kp J       &kp K       &kp L
         // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├───────────┼───────────┼───────────┼───────────┼───────────┤
-        // │     3     │     Z     │     X     │     C     │     V     │   │     B     │     N     │     M     │    ,/;    │ minecraft │
-              &kp N3       &kp Z       &kp X       &kp C       &kp V           &kp B       &kp N       &kp M       &kp P      &kp F3
+        // │   ctrl    │     Z     │     X     │     C     │     V     │   │     B     │     N     │     M     │    ,/;    │ minecraft │
+             &kp LCTRL     &kp Z       &kp X       &kp C       &kp V           &kp B       &kp N       &kp M       &kp P      &kp F3
         // ╰───────────┼───────────┼───────────┼───────────┼───────────╯   ╰───────────┼───────────┼───────────┼───────────┼───────────╯
-                                     &kp LSHIFT  &kp LCTRL   &kp SPACE       &kp RETURN   &kp ESC    &kp BSPC 
+                                     &kp   &kp LCTRL   &kp SPACE       &kp RETURN   &kp ESC    &kp BSPC 
         //                         │                                   │   │                                   │
         //                         ╰───────────────────────────────────╯   ╰───────────────────────────────────╯
       >;
