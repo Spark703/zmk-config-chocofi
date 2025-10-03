@@ -169,8 +169,8 @@ ZMK_BEHAVIOR(hmr_s, hold_tap,
       #binding-cells = <0>;
       binding
         = <&macro_tap &kp N0 &kp N0 &kp N0>
-    }
-  }
+    };
+  };
 };
 
 / {
