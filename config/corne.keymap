@@ -127,6 +127,24 @@ ZMK_BEHAVIOR(hmr_s, hold_tap,
         key-positions = <LM4 LT4>;
         layers = < BASE >;
       };
+      ru_ha_combo {
+        timeout-ms = <50>;
+        bindings = <&kp RU_CYRILLIC_HA>;
+        key-positions = <RM3 RT3>;
+        layers = < BASE >;
+      };
+      ru_e_combo {
+        timeout-ms = <50>;
+        bindings = <&kp RU_CYRILLIC_E>;
+        key-positions = <RM4 RT4>;
+        layers = < BASE >;
+      };
+      ru_hard_combo {
+        timeout-ms = <50>;
+        bindings = <&kp RU_CYRILLIC_HARD_SIGN>;
+        key-positions = <RB4 RM4>;
+        layers = < BASE >;
+      };
   };
   behaviors {
     hm: homerow_mods {
@@ -147,12 +165,6 @@ ZMK_BEHAVIOR(hmr_s, hold_tap,
             bindings = <&kp BSPC>, <&kp DEL>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
     };
-    TEIO: T_RUE_RUIO {
-         compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp T>, <&kp RU_CYRILLIC_IO>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-    };
     oneshot_esc: oneshot {
           compatible = "zmk,behavior-oneshot";
           label = "OneShot ESC";
@@ -170,6 +182,14 @@ ZMK_BEHAVIOR(hmr_s, hold_tap,
       bindings
         = <&macro_tap &kp N0 &kp N0 &kp N0>;
     };
+    nine_0: nine_0 {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings
+        = <&macro_tap &kp N0 &kp N0 &kp N0
+          &kp N0 &kp N0 &kp N0
+          &kp N0 &kp N0 &kp N0>;
+    };
   };
 };
 
@@ -181,12 +201,12 @@ ZMK_BEHAVIOR(hmr_s, hold_tap,
       bindings = <
         // ╭───────────────────────────────────────────────────────────╮   ╭───────────────────────────────────────────────────────────╮
         // │    Q/Й    │    W/Ц    │    E/У    │    R/К    |    T/Е    │   │    Y/Н    │    U/Г    │    I/Ш    │    O/Щ    │    P/З    │
-              &lt FN Q     &kp W       &kp E       &kp R       &kp T          &kp Y       &kp U       &kp I       &kp O       &kp P
-        // ├────│Ё│────┼───────────┼───────────┼───────────┼───────────┤   ├───────────┼───────────┼───────────┼ ──────────┼───────────┤
-        // │    A/Ф    │    S/Ы    │    D/В    │    F/Д    │    G/А    │   │    H/Р    │    J/О    │    K/Л    │    L/Д     │    '/Ж    │
+              &lt FN Q     &kp W       &kp E       &kp R       &kp T           &kp Y       &kp U       &kp I       &kp O      &lt FN P
+        // ├────┤Ё├────┼───────────┼───────────┼───────────┼───────────┤   ├───────────┼───────────┼───────────┼────┤Х├────┼────┤Э├────┤
+        // │    A/Ф    │    S/Ы    │    D/В    │    F/Д    │    G/А    │   │    H/Р    │    J/О    │    K/Л    │    L/Д    │    '/Ж    │
             HRML(A,          S,          D,          F)      &lt NUM G         &kp H     HRMR(J,         K,          L,        SEMI)
-        // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├───────────┼───────────┼───────────┼───────────┼───────────┤
-        // │    Z/Я    │    X/Ч    │    C/С    │    V/М    │    B/И    │   │    N/Т    │    M/Ь    │   ,/;/Б   │   ./:/Ю    │   //,     │
+        // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├───────────┼───────────┼───────────┼───────────┼────┤Ъ├────┤
+        // │    Z/Я    │    X/Ч    │    C/С    │    V/М    │    B/И    │   │    N/Т    │    M/Ь    │   ,/;/Б   │   ./:/Ю   │    //,    │
                &kp Z       &kp X       &kp C       &kp V       &kp B           &kp N       &kp M     &kp COMMA    &kp DOT     &kp FSLH
         // ╰───────────┼───────────┼───────────┼───────────┼───────────╯   ╰───────────┼───────────┼───────────┼───────────┼───────────╯
                                      &kp CAPS  &lt NAV TAB &lt NUM SPACE    &kp RETURN  &lt SYM ESC    &SBD 
@@ -199,10 +219,10 @@ ZMK_BEHAVIOR(hmr_s, hold_tap,
       bindings = <
         // ╭───────────────────────────────────────────────────────────╮   ╭───────────────────────────────────────────────────────────╮
         // │     _     │     _     │     _     │     _     │     _     │   │     _     │     7     │     8     │     9     │     _     │
-                _x_         _x_         _x_         _x_         _x_             ___        &kp N7      &kp N8      &kp N9       _x_
+                _x_         _x_         _x_         _x_         _x_           &nine_9      &kp N7      &kp N8      &kp N9       _x_
         // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├───────────┼───────────┼───────────┼───────────┼───────────┤
         // │     _     │     _     │     _     │     _     │     _     │   │     _     │     4     │     5     │     6     │     _     │
-                ___         ___         ___         ___         ___           &three_0    &kp N4      &kp N5      &kp N6       _x_
+                ___         ___         ___         ___         ___           &three_0     &kp N4      &kp N5      &kp N6       _x_
         // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├───────────┼───────────┼───────────┼───────────┼───────────┤
         // │     _     │     _     │     _     │     _     │     _     │   │     0     │     1     │     2     │     3     │     _     │
                 _x_         _x_         _x_         _x_         _x_            &kp N0      &kp N1      &kp N2      &kp N3       _x_
@@ -217,13 +237,13 @@ ZMK_BEHAVIOR(hmr_s, hold_tap,
       bindings = <
         // ╭───────────────────────────────────────────────────────────╮   ╭───────────────────────────────────────────────────────────╮
         // │     !     │     @     │     #     │     $     │     %     │   │     ^     │     &     │     *     │     `     │     ~     │
-              &kp EXCL    &kp AT     &kp HASH    &kp DLLR   &kp PRCNT       &kp CARET    &kp AMPS    &kp STAR    &kp GRAVE  &kp TILDE
+              &kp EXCL    &kp AT     &kp HASH    &kp DLLR   &kp PRCNT        &kp CARET   &kp AMPS    &kp STAR    &kp GRAVE  &kp TILDE
         // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├───────────┼───────────┼───────────┼───────────┼───────────┤
         // │     "     │     [     │     {     │     (     │     <     │   │     /     │     -     │     =     │     :     │     ;     │
-              &kp DQT     &kp LBKT    &kp LBRC    &kp LPAR    &kp LT           &kp FSLH  &kp MINUS    &kp EQUAL   &kp COLON   &kp SEMI
+              &kp DQT     &kp LBKT    &kp LBRC    &kp LPAR    &kp LT         &kp FSLH    &kp MINUS   &kp EQUAL   &kp COLON   &kp SEMI
         // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├───────────┼───────────┼───────────┼───────────┼───────────┤
         // │     '     │     ]     │     }     │     )     │     >     │   │     \     │     _     │     +     │     |     │     ?     │
-              &kp SQT     &kp RBKT    &kp RBRC    &kp RPAR    &kp GT         &kp BSLH     &kp UNDER   &kp PLUS     &kp PIPE   &kp QMARK
+              &kp SQT     &kp RBKT    &kp RBRC    &kp RPAR    &kp GT         &kp BSLH    &kp UNDER   &kp PLUS     &kp PIPE   &kp QMARK
         // ╰───────────┼───────────┼───────────┼───────────┼───────────╯   ╰───────────┼───────────┼───────────┼───────────┼───────────╯
                                         ___         _x_         _x_             _x_         _x_         _x_
         //                         │                                   │   │                                   │
@@ -238,10 +258,10 @@ ZMK_BEHAVIOR(hmr_s, hold_tap,
               &sl BASE  &out OUT_USB &out OUT_BLE   _x_     &bt BT_CLR         &kp F10     &kp F7      &kp F8      &kp F9  &kp C_AL_LOCK
         // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├───────────┼───────────┼───────────┼───────────┼───────────┤
         // │bluetooth 0│bluetooth 1│bluetooth 2│bluetooth 3│bluetooth 4│   │     _     │     _     │     _     │     _     │     _     │
-            &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp F11     &kp F4      &kp F5      &kp F6       &kp F13
+            &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp F11     &kp F4      &kp F5      &kp F6     &kp F13
         // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├───────────┼───────────┼───────────┼───────────┼───────────┤
         // │     _     │     _     │     _     │     _     │     _     │   │     _     │           │           │     _     │     _     │
-            &bootloader     _x_         _x_         _x_        _x_             &kp F12     &kp F1      &kp F2      &kp F3       &kp F14
+            &bootloader     _x_         _x_         _x_        _x_             &kp F12     &kp F1      &kp F2      &kp F3   &bootloader
         // ╰───────────┼───────────┼───────────┼───────────┼───────────╯   ╰───────────┼───────────┼───────────┼───────────┼───────────╯
                                         ___         ___         ___             ___         ___         ___ 
         //                         │                                   │   │                                   │
@@ -259,7 +279,7 @@ ZMK_BEHAVIOR(hmr_s, hold_tap,
              HRML(HOME,  PAGE_DOWN,   PAGE_UP,      END)        _x_             _x_      HRMR(LEFT,     DOWN,       UP,        RIGHT)
         // ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├───────────┼───────────┼───────────┼───────────┼───────────┤
         // │     _     │     _     │     _     │     _     │     _     │   │     _     │     _     │     _     │     _     │     _     │
-             &kp LG(N1)    _CUT_       _COPY_     _PASTE_       _x_             _x_         _x_         _x_         _x_       &kp DEL
+             &kp LG(N1)  &kp LG(N2)  &kp LG(N3)  &kp LG(N4)  &kp LG(N5)         _x_         _x_         _x_         _x_       &kp DEL
         // ╰───────────┼───────────┼───────────┼───────────┼───────────╯   ╰───────────┼───────────┼───────────┼───────────┼───────────╯
                                         ___         _x_         ___             ___         ___         ___
         //                         │                                   │   │                                   │
@@ -290,7 +310,7 @@ ZMK_BEHAVIOR(hmr_s, hold_tap,
 //                                  Template for new layers all keys are transparent
 //      ╭───────────────────────────────────────────────────────────╮   ╭───────────────────────────────────────────────────────────╮
 //      │     _     │     _     │     _     │     _     │     _     │   │     _     │     _     │     _     │     _     │     _     │
-//           ___          ___         ___         ___         ___             ___         ___         ___         ___         ___
+//           ___         ___         ___         ___         ___             ___         ___         ___         ___         ___
 //      ├───────────┼───────────┼───────────┼───────────┼───────────┤   ├───────────┼───────────┼───────────┼───────────┼───────────┤
 //      │     _     │     _     │     _     │     _     │     _     │   │     _     │     _     │     _     │     _     │     _     │
 //           ___         ___         ___         ___         ___             ___         ___         ___         ___         ___
