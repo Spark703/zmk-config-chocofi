@@ -165,7 +165,7 @@ ZMK_BEHAVIOR(hmr_s, hold_tap,
 / {
   macros {
     three_0: three_0 {
-      compatible = "zmk,behavior-macro"
+      compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
       binding
         = <&macro_tap &kp N0 &kp N0 &kp N0>
